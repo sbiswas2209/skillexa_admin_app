@@ -34,14 +34,14 @@ class Participant {
   }
   Map<String, dynamic> toJson() {
     return {
-      "id": this.id,
-      "name": this.name,
-      "email": this.email,
-      "contact": this.phone,
-      "regno": this.regno,
-      "rsvp": this.rsvp,
-      "present": this.present,
-      "confirmed": this.confirmed
+      "id": id,
+      "name": name,
+      "email": email,
+      "contact": phone,
+      "regno": regno,
+      "rsvp": rsvp,
+      "present": present,
+      "confirmed": confirmed
     };
   }
 }

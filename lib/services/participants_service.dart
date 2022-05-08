@@ -19,8 +19,9 @@ class ParticipantService extends GetxController {
   RxBool isLoading = false.obs;
   Future<void> getAllParticipants() async {
     await FirebaseAuth.instance.signInAnonymously();
-    Response response = await get(Uri.https(
-        "alexa-prosperity.herokuapp.com", "/api/participants/skillexa"));
+    //TODO: Replace URL
+    Response response =
+        await get(Uri.https("<YOUR API URL>", "/api/participants/skillexa"));
     participants.addAll((jsonDecode(response.body) as List<dynamic>)
         .map((e) => Participant.fromJson(json: e)));
     participants.refresh();
@@ -40,9 +41,9 @@ class ParticipantService extends GetxController {
         isLoading(false);
         return {"message": "Already Checked In", "result": false};
       }
+      //TODO: Replace URL
       Response response = await get(
-          Uri.parse(
-              "https://alexa-prosperity.herokuapp.com/api/attendance/skillexa?email=$email"),
+          Uri.parse("<YOUR API URL>/api/attendance/skillexa?email=$email"),
           headers: {"event": "skillexa"});
       log(response.body.toString(), name: "Response");
       if (response.statusCode == 200) {
